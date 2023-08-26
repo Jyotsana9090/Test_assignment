@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopkart</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400&display=swap">
+<style>
+  body {
+    font-family: 'Syne', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  nav {
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+  }
+  .logo {
+    font-size: 24px;
+  }
+  ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    position: relative; /* Required for the dropdown positioning */
+    margin-right: 20px;
+  }
+  li:last-child {
+    margin-right: 0;
+  }
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #000;
+    z-index: 1;
+  }
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  .dropdown-content a {
+    display: block;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+  }
+  .right-options {
+    display: flex;
+    align-items: center;
+  }
+  .wishlist,
+  .bag {
+    margin-left: 20px;
+    font-size: 18px;
+  }
+
+  /* New styles for the banner section */
+  .banner {
+    background: url('banner_img.png') no-repeat center center;
+    background-size: cover;
+    height: 550px;
+    width: 100%;
+  }
+  .banner-text {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 120px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+  .banner-images {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex-grow: 1;
+  }
+  .horizontal-image,
+  .vertical-image {
+    max-height: 50%;
+    max-width: 50%;
+  }
+  .vertical-image {
+    width: auto;
+  }
+
+  .new-product {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center; /* Center text horizontally */
+  }
+  .new-product-heading {
+    font-size: 68px;
+    font-weight: bold;
+    margin-bottom: 120px;
+  }
+  .product-row {
+    display: flex;
+    justify-content:center;
+    flex-wrap: wrap; /* Allow wrapping to form multiple rows */
+  }
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: calc(25% - 20px); /* Four cards per row with spacing */
+    max-width: 250px; /* Limit card width */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .product-image {
+    max-width: 160px;
+    max-height: 160px;
+    margin-bottom: 10px;
+  }
+  .product-details {
+    flex-grow: 1;
+    text-align: center;
+  }
+  .product-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .product-price {
+    font-size: 20px;
+    color: #555;
+  }
+  
+
+  .contact-section {
+    background-image: url('banner_img.png'); /* Replace with actual path */
+    background-size: cover;
+    color: #777;
+    text-align: center;
+    padding: 100px 0;
+  }
+  .contact-heading {
+    font-size: 68px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin-bottom: 50px;
+  }
+  .contact-form {
+    background-color: transparent; /* Transparent background */
+    padding: 20px;
+    display: inline-block;
+    border-radius: 8px;
+    text-align: left;
+    box-shadow: none; /* Remove box shadow */
+  }
+  .contact-input {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: none; /* Remove border */
+    border-radius: 4px;
+    font-size: 16px;
+    color: #777; /* Set text color to grey */
+  }
+  .contact-input::placeholder {
+    color: #777; /* Set placeholder color to grey */
+  }
+  .contact-button {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  .footer {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+  }
+
+</style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Shopkart</div>
+    <ul>
+      <li><a href="#home"><b>Home</b></a></li>
+      <li><a href="#about"><b>About</b></a></li>
+      <li class="dropdown">
+        <a href="#product"><b>Our Products</b></a>
+        <div class="dropdown-content">
+          <a href="#p1">Product 1</a>
+          <a href="#p2">Product 2</a>
+          <a href="#p3">Product 3</a>
+          <a href="#p4">Product 4</a>
+        </div>
+      </li>
+      <li><a href="#contact-section"><b>Contact Us</b></a></li>
+    </ul>
+    <div class="right-options">
+      <div class="wishlist"><b>Wishlist</b></div>
+      <div class="bag"><b>Bag</b></div>
+    </div>
+  </nav>
+
+  <section class="banner">
+    <div class="banner-text">Fresh 2022 Look</div>
+    <div class="banner-images">
+      <img src="jessica-radanavong-IchPBHFD0pw-unsplash.png" alt="Vertical Image" class="vertical-image">
+    </div>
+  </section>
+
+  
+  <section class="new-product">
+    <h2 class="new-product-heading">New Product</h2>
+    <div class="product-row">
+    <div class="product-card">
+        <img src="philipp-arlt-8EyB_RvaWtY-unsplash.png" alt="Product 1" class="product-image">
+        <div class="product-details">
+          <div class="product-title">Product 1</div>
+          <div class="product-price">$99.99</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="jessica-radanavong-IchPBHFD0pw-unsplash.png" alt="Product 2" class="product-image">
+        <div class="product-details">
+          <div class="product-title">Product 2</div>
+          <div class="product-price">$129.99</div>
+        </div>
+
+        
+      </div>
+
+
+      <div class="product-card">
+        <img src="philipp-arlt-NmH9A0obon8-unsplash.png" alt="Product 2" class="product-image">
+        <div class="product-details">
+          <div class="product-title">Product 2</div>
+          <div class="product-price">$129.99</div>
+        </div>
+
+        
+      </div>
+
+      <div class="product-card">
+        <img src="malicki-m-beser-PKMvkg7vnUo-unsplash.png" alt="Product 2" class="product-image">
+        <div class="product-details">
+          <div class="product-title">Product 2</div>
+          <div class="product-price">$129.99</div>
+        </div>
+
+        
+      </div>
+      
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="contact-heading">Get in Touch</div>
+    <div class="contact-form">
+      <input type="text" class="contact-input" placeholder="Name">
+      <input type="email" class="contact-input" placeholder="Email">
+      <input type="tel" class="contact-input" placeholder="Phone">
+      <button class="contact-button">Submit</button>
+    </div>
+  </section>
+
+  <footer class="footer">
+     Copyright 2022 All Rights Reserved by SG
+  </footer>
+
+  <!-- Your page content here -->
+
+  <script>
+    // JavaScript code (if needed)
+
+
+
+  </script>
+</body>
+</html>
